@@ -1,10 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
-
-export const GlobalStyle = createGlobalStyle`
+const styled = { createGlobalStyle };
+export const GlobalStyle = styled.createGlobalStyle`
   ${normalize}
   html {
-    font-size:10px;
-    box-sizing: border-box;
+    font-size: 10px;
   }
 `;
