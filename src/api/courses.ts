@@ -4,12 +4,6 @@ import { instance } from './instance';
 const DEFAULT_OFFSET = 0;
 const DEFAULT_COUNT = 20;
 
-export interface GetCoursesProps {
-  conditions: FilterConditions;
-  offset: number;
-  count: number;
-}
-
 export const getCourses = async (
   conditions: FilterConditions,
   offset: number = DEFAULT_OFFSET,
@@ -20,9 +14,12 @@ export const getCourses = async (
       params: {
         filter_conditions: JSON.stringify({
           $and: [
-            { title: '%c언어%' },
+            { title: `%${conditions.title}%` },
             {
-              $or: [{ enroll_type: 0, is_free: true }],
+              $or: conditions.isFree.map((value) => ({
+                enroll_type: 0,
+                is_free: value === 'free',
+              })),
             },
           ],
         }),
