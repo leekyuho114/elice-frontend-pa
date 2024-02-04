@@ -9,10 +9,10 @@ export const Header = () => {
         className="header-icon"
       />
       <nav className="header-nav">
-        <div className="header-nav-element">홈</div>
-        <div className="header-nav-element">전체 강의</div>
-        <div className="header-nav-element">🌏플루럴사이트</div>
-        <div className="header-nav-element">클라우드</div>
+        <div className="header-nav-element text-header-nav">홈</div>
+        <div className="header-nav-element text-header-nav">전체 강의</div>
+        <div className="header-nav-element text-header-nav">🌏플루럴사이트</div>
+        <div className="header-nav-element text-header-nav">클라우드</div>
         <input placeholder="검색" />
         <button>내 대시보드</button>
       </nav>
@@ -45,9 +45,6 @@ const Container = styled.header`
     gap: 8px;
   }
   .header-nav-element {
-    font-weight: 600;
-    font-size: 0.875rem;
-    line-height: 1.5rem;
     padding: 0.5rem 0.75rem;
     transition: background-color 0.15s ease;
     &:hover {
