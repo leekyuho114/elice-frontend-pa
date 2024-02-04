@@ -8,9 +8,15 @@ export const CoursesCards = () => {
   const { courses, course_count, status } = useFetchCourses(0);
   return (
     <Container>
-      {courses?.map((value) => {
-        return <Card course={value} />;
-      })}
+      {course_count > 0 ? (
+        <>
+          {courses?.map((value) => {
+            return <Card course={value} />;
+          })}
+        </>
+      ) : (
+        <div>검색 결과가 없습니다.</div>
+      )}
     </Container>
   );
 };
