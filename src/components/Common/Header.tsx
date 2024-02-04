@@ -10,12 +10,16 @@ export const Header = () => {
       />
       <div className="header-options">
         <nav className="header-nav">
-          <div className="header-nav-element text-header-nav">홈</div>
-          <div className="header-nav-element text-header-nav">전체 강의</div>
-          <div className="header-nav-element text-header-nav">
+          <div className="header-nav-element-home text-header-nav">홈</div>
+          <div className="header-nav-element-main text-header-nav">
+            전체 강의
+          </div>
+          <div className="header-nav-element-main text-header-nav">
             🌏플루럴사이트
           </div>
-          <div className="header-nav-element text-header-nav">클라우드</div>
+          <div className="header-nav-element-main text-header-nav">
+            클라우드
+          </div>
           <div className="header-nav-element text-header-nav">내일배움카드</div>
           <div className="header-nav-element text-header-nav">기업교육문의</div>
           <div className="header-nav-element text-header-nav">학습 순위</div>
@@ -64,7 +68,9 @@ const Container = styled.header`
     display: flex;
     gap: 8px;
   }
-  .header-nav-element {
+  .header-nav-element,
+  .header-nav-element-main,
+  .header-nav-element-home {
     padding: 0.5rem 0.75rem;
     transition: background-color 0.15s ease;
     &:hover {
@@ -99,6 +105,16 @@ const Container = styled.header`
     transition: background-color 0.15s ease;
     &:hover {
       background-color: #f6f6f7;
+    }
+  }
+  @media (max-width: 1012px) {
+    div.header-nav-element {
+      display: none;
+    }
+  }
+  @media (max-width: 724px) {
+    div.header-nav-element-main {
+      display: none;
     }
   }
 `;
