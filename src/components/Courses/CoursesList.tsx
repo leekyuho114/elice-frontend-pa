@@ -9,38 +9,45 @@ export const CoursesList = () => {
   const calculateTotalPages = (totalItems: number): number => {
     return Math.ceil(totalItems / DEFAULT_COUNT);
   };
-
-  return (
-    <Container>
-      {course_count > 0 ? (
-        <>
-          <div className="text-total-count">전체 {course_count}개</div>
-          <div className="card-container">
-            {courses?.map((value) => {
-              return <Card key={value.id} course={value} />;
-            })}
+  if (status === 'loading') {
+    return null;
+  } else if (status === 'ok') {
+    return (
+      <Container>
+        {course_count > 0 ? (
+          <>
+            <div className="text-total-count">전체 {course_count}개</div>
+            <div className="card-container">
+              {courses?.map((value) => {
+                return <Card key={value.id} course={value} />;
+              })}
+            </div>
+          </>
+        ) : (
+          <div className="list-none-container">
+            <Search
+              fill="#999"
+              width={'2.75rem'}
+              height={'2.75rem'}
+              style={{
+                marginTop: '7rem',
+                marginBottom: '2rem',
+                marginRight: '1.25rem',
+              }}
+            />
+            <div className="text-default">검색 결과가 없습니다.</div>
           </div>
-        </>
-      ) : (
-        <div className="list-none-container">
-          <Search
-            fill="#999"
-            width={'2.75rem'}
-            height={'2.75rem'}
-            style={{
-              marginTop: '7rem',
-              marginBottom: '2rem',
-              marginRight: '1.25rem',
-            }}
+        )}
+        {course_count > 20 ? (
+          <CoursesPagination
+            maxPageNumber={calculateTotalPages(course_count)}
           />
-          <div className="text-default">검색 결과가 없습니다.</div>
-        </div>
-      )}
-      {course_count > 20 ? (
-        <CoursesPagination maxPageNumber={calculateTotalPages(course_count)} />
-      ) : null}
-    </Container>
-  );
+        ) : null}
+      </Container>
+    );
+  } else {
+    return <>error</>;
+  }
 };
 const Container = styled.div`
   width: 100%;
