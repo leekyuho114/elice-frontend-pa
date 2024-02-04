@@ -6,4 +6,7 @@ export interface FilterConditions {
 export type courseInfo = {
   title: string;
   short_description: string;
+  price: string;
+  discounted_price: string;
+  discount_rate: string | null;
 };
