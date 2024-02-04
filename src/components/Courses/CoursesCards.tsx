@@ -22,6 +22,7 @@ export const CoursesCards = () => {
 };
 const Container = styled.div`
   display: flex;
+  margin: -12px;
   flex-wrap: wrap;
   align-items: center;
 `;
