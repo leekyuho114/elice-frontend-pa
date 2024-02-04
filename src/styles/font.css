@@ -66,6 +66,12 @@
   font-weight: 700;
   color: white;
 }
+.text-field {
+  font-size: 0.75rem;
+  color: #524fa1;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
 /* header text */
 .text-header-nav {
   font-weight: 600;

@@ -12,6 +12,7 @@ export const Card = ({ course }: CardProps) => {
       </Thumbnail>
       <div className="content-container">
         <div className="title-container">
+          <div className="text-field">미설정</div>
           <div className="text-title">{course.title}</div>
           <div className="text-small">{course.short_description}</div>
         </div>
