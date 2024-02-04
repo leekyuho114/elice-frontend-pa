@@ -2,15 +2,10 @@ import { Card } from 'components/Common/Card';
 import { useFetchCourses } from 'hooks/useFetchCourses';
 import styled from 'styled-components';
 import { CoursesPagination } from './CoursesPagination';
-import { useRecoilValue } from 'recoil';
-import { pageState } from 'utils/atom';
 import { DEFAULT_COUNT } from 'utils/constant';
 
 export const CoursesList = () => {
-  const page = useRecoilValue(pageState);
-  const offset = (page - 1) * DEFAULT_COUNT;
-  const { courses, course_count, status } = useFetchCourses(offset);
-
+  const { courses, course_count, status } = useFetchCourses();
   const calculateTotalPages = (totalItems: number): number => {
     return Math.ceil(totalItems / DEFAULT_COUNT);
   };
@@ -29,7 +24,9 @@ export const CoursesList = () => {
       ) : (
         <div>검색 결과가 없습니다.</div>
       )}
-      {<CoursesPagination maxPageNumber={calculateTotalPages(course_count)} />}
+      {course_count > 20 ? (
+        <CoursesPagination maxPageNumber={calculateTotalPages(course_count)} />
+      ) : null}
     </Container>
   );
 };
