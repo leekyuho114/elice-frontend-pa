@@ -1,8 +1,6 @@
 import { FilterConditions } from 'utils/type';
 import { instance } from './instance';
-
-const DEFAULT_OFFSET = 0;
-const DEFAULT_COUNT = 20;
+import { DEFAULT_COUNT, DEFAULT_OFFSET } from 'utils/constant';
 
 export const getCourses = async (
   conditions: FilterConditions,
