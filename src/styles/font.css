@@ -19,6 +19,10 @@
   src: local('PretendardRegular'),
     url('../assets/fonts/Pretendard-Regular.woff2') format('woff2');
 }
+.text-default {
+  font-size: 1rem;
+  color: #999;
+}
 .text-total-count {
   font-size: 0.75rem;
   font-weight: 700;
