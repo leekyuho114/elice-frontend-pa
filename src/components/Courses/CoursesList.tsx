@@ -3,7 +3,7 @@ import { useFetchCourses } from 'hooks/useFetchCourses';
 import { useState } from 'react';
 import styled from 'styled-components';
 
-export const CoursesCards = () => {
+export const CoursesList = () => {
   const [page, setPage] = useState<number>(0);
   const { courses, course_count, status } = useFetchCourses(0);
   return (

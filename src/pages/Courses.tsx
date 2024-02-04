@@ -1,4 +1,4 @@
-import { CoursesCards, CoursesFilter } from 'components/Courses';
+import { CoursesFilter, CoursesList } from 'components/Courses';
 import styled from 'styled-components';
 
 export const Courses = () => {
@@ -6,7 +6,7 @@ export const Courses = () => {
     <Container>
       <div className="courses-page-layout">
         <CoursesFilter />
-        <CoursesCards />
+        <CoursesList />
       </div>
     </Container>
   );
