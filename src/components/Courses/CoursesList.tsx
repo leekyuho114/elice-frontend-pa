@@ -17,10 +17,12 @@ export const CoursesList = () => {
         {course_count > 0 ? (
           <>
             <div className="text-total-count">전체 {course_count}개</div>
-            <div className="card-container">
-              {courses?.map((value) => {
-                return <Card key={value.id} course={value} />;
-              })}
+            <div style={{ margin: '-12px' }}>
+              <div className="card-container">
+                {courses?.map((value) => {
+                  return <Card key={value.id} course={value} />;
+                })}
+              </div>
             </div>
           </>
         ) : (
@@ -53,7 +55,6 @@ const Container = styled.div`
   width: 100%;
   .card-container {
     display: flex;
-    margin: -12px;
     flex-wrap: wrap;
     align-items: center;
     max-width: 100%;

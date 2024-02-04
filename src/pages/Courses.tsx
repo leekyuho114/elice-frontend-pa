@@ -11,9 +11,7 @@ export const Courses = () => {
     </Container>
   );
 };
-// @media only screen and (max-width: 1279.98px) {
-//   background-color: grey;
-// }
+
 const Container = styled.main`
   overflow-x: hidden;
   .courses-page-layout {
