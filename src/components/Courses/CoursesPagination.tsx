@@ -11,6 +11,9 @@ export const CoursesPagination = ({
   maxPageNumber,
 }: CoursesPaginationProps) => {
   const [page, setPage] = useRecoilState(pageState);
+  //5보다 작은 경우 maxPageNumber로 생성
+  const pageNumberArray = Array.from({ length: maxPageNumber });
+
   const toggleNumberFocus = (value: number) => {
     if (page < 3) {
       if (page === 1) {
@@ -54,20 +57,40 @@ export const CoursesPagination = ({
   return (
     <Container>
       <LeftNav onClick={handleLeftNavClick} disabled={page === 1} />
-      {[-2, -1, 0, 1, 2].map((value) => {
-        //중앙값 계산
-        const pageNumber = calculateCenterPage() + value;
-        return (
-          <NumberBox
-            isFocus={toggleNumberFocus(value)}
-            onClick={() => {
-              setPage(pageNumber);
-            }}
-          >
-            {pageNumber}
-          </NumberBox>
-        );
-      })}
+      {pageNumberArray.length >= 5 ? (
+        <>
+          {[-2, -1, 0, 1, 2].map((value) => {
+            //중앙값 계산
+            const pageNumber = calculateCenterPage() + value;
+            return (
+              <NumberBox
+                isFocus={toggleNumberFocus(value)}
+                onClick={() => {
+                  setPage(pageNumber);
+                }}
+              >
+                {pageNumber}
+              </NumberBox>
+            );
+          })}
+        </>
+      ) : (
+        <>
+          {pageNumberArray.map((_, index) => {
+            const value = index + 1;
+            return (
+              <NumberBox
+                isFocus={value === page}
+                onClick={() => {
+                  setPage(value);
+                }}
+              >
+                {value}
+              </NumberBox>
+            );
+          })}
+        </>
+      )}
       <RightNav
         onClick={handleRigthNavClick}
         disabled={page === maxPageNumber}
