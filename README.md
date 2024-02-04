@@ -1,46 +1,98 @@
-# Getting Started with Create React App
+# Elice Frontend Programming Assignment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+엘리스 페이지의 과목 검색 기능 간소화된 버전을 구현
+[배포링크](https://elice-frontend-pa.vercel.app/)
 
-## Available Scripts
+## 기술 스택
 
-In the project directory, you can run:
+- React
+- Typescript
+- axios
+- recoil
+- react-router-dom
+- styled-components
+- prettier
 
-### `npm start`
+## 폴더 구조
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+src
+├── index.tsx
+├── App.tsx
+├── Router.tsx
+├── api
+│   ├── courses.ts
+│   └── instance.ts
+├── assets
+│   ├── fonts
+│   └── icons
+├── components
+│   ├── Common
+│   │   ├── Card.tsx
+│   │   ├── FilterTag.tsx
+│   │   ├── Header.tsx
+│   │   └── Input.tsx
+│   └── Courses
+│       ├── CoursesFilter.tsx
+│       ├── CoursesList.tsx
+│       ├── CoursesPagination.tsx
+│       └── index.tsx
+├── hooks
+│   ├── useDebounce.ts
+│   ├── useFetchCourses.ts
+│   └── useFilter.ts
+├── pages
+│   └── Courses.tsx
+├── styles 
+│   ├── color.ts
+│   ├── font.css
+│   └── GlobalStyle.ts
+└── utils
+    ├── atom.ts
+    ├── constant.ts
+    └── type.ts
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```
 
-### `npm test`
+### 폴더 상세
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **api** : 프로젝트에 사용되는 axios instance 및 Api 함수를 정의합니다.
+- **assets** : font, icon 등의 파일을 정의합니다.
+- **components** : 재사용 가능한 컴포넌트로 구성되며, Common(공통)과 각 페이지 별 폴더로 나눠지고, 해당 프로젝트에서는 Courses 페이지 하나만 존재합니다.
+- **hooks** : 커스텀 훅을 저장합니다.
+- **pages** : 페이지에 해당하는 컴포넌트를 저장합니다.
+- **styles** : GlobalStyle이나 font, color와 같은 style에 필요한 코드를 저장합니다.
+- **utils** : 그 외의 recoil, default 값으로 사용되는 값 그리고 type을 정의합니다.
 
-### `npm run build`
+## 주요 구현 내용
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 검색 필터 및 URL query
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+https://github.com/leekyuho114/elice-frontend-pa/assets/64120854/c9f2a9a0-431f-4750-bd29-c22e9e5a2059
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- URL query를 사용하기 위해 react-router-dom의 `useSearchParams` 훅을 사용하였습니다. `useFetchCourses` 커스텀 훅을 통해 searchParams와 api 호출 시 필요한 offset 값이 바뀔 때마다 get 요청을 하도록 구현하였습니다.
+- 과도한 api 요청을 방지하기 위해 `useDebounce` 커스텀 훅을 정의하여 디바운싱하였습니다.
+- `useFilter` 커스텀 훅을 정의하여, 초기 컴포넌트 마운트 시 URL query에서 값을 가져와 값을 초기화하고, `useDebounce`를 통한 input의 디바운싱 처리를 합니다.
 
-### `npm run eject`
+### 검색 Course Item UI
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<img width="923" alt="image" src="https://github.com/leekyuho114/elice-frontend-pa/assets/64120854/52c68dfe-b9b1-4a8e-b52f-1a6db6ea416c">
+* axios를 통한 HTTP 통신으로 `is_free`, `discount_rate`, `price` 등을 통해 알맞는 UI를 구현하였습니다.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Pagination
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+https://github.com/leekyuho114/elice-frontend-pa/assets/64120854/0b16f883-24d7-4d1a-9986-e2abd5aff1dd
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- page state를 관리하기 위해 recoil 전역 변수 라이브러리를 사용하였습니다.
+- `useFetchCourses`에서 페이지 마운트 시 page를 1로 초기화합니다.
+- `CoursesPagination` 컴포넌트에서 모든 예외 케이스에 대해 실제 페이지와 동일하게 동작하도록 처리하였습니다.
 
-## Learn More
+## 결과 화면
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![screencapture-elice-frontend-pa-vercel-app-2024-02-05-04_39_07](https://github.com/leekyuho114/elice-frontend-pa/assets/64120854/ef47fe76-8922-4e57-a436-c18e4e9b9a26)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 추가 반영사항
+
+- **반응형**: 브라우저 vw가 줄어듦에 따라 row에 보여지는 아이템의 개수를 `media-query`를 통해 반응형 처리하였습니다.
+- **custom scroll**: 커스텀 스크롤 바를 구현하였습니다.
+- **Header**: header의 UI만 구현하였습니다.
