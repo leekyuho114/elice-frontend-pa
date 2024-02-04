@@ -3,7 +3,12 @@ import { normalize } from 'styled-normalize';
 const styled = { createGlobalStyle };
 export const GlobalStyle = styled.createGlobalStyle`
   ${normalize}
-
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    background-color: #f0f1f3;
+  }
   /*custom scroll bar*/
   ::-webkit-scrollbar {
     width: 0.5rem;
