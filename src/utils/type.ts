@@ -4,6 +4,7 @@ export interface FilterConditions {
 }
 //course information data type
 export type courseInfo = {
+  id: number;
   title: string;
   short_description: string;
   price: string;
