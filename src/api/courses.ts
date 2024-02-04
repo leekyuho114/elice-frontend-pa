@@ -14,7 +14,7 @@ export const getCourses = async (
       params: {
         filter_conditions: JSON.stringify({
           $and: [
-            { title: `%${conditions.title}%` },
+            { title: `%${conditions.title || ''}%` },
             {
               $or: conditions.isFree.map((value) => ({
                 enroll_type: 0,
