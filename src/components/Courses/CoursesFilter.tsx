@@ -42,19 +42,24 @@ export const CoursesFilter = () => {
         onChange={handleKeywordChange}
         placeholder="배우고 싶은 언어, 기술을 검색해 보세요"
       ></input>
-      <FilterTag
-        text="무료"
-        isSelected={price.includes('free')}
-        onClick={handleFreeClick}
-      />{' '}
-      <FilterTag
-        text="유료"
-        isSelected={price.includes('paid')}
-        onClick={handlePaidClick}
-      />
+      <div className="filter-row">
+        <FilterTag
+          text="무료"
+          isSelected={price.includes('free')}
+          onClick={handleFreeClick}
+        />{' '}
+        <FilterTag
+          text="유료"
+          isSelected={price.includes('paid')}
+          onClick={handlePaidClick}
+        />
+      </div>
     </Container>
   );
 };
 const Container = styled.div`
   width: 100%;
+  .filter-row {
+    background-color: #f9fafc;
+  }
 `;

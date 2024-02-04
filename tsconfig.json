@@ -18,5 +18,5 @@
     "jsx": "react-jsx",
     "allowImportingTsExtensions": true
   },
-  "include": ["src"]
+  "include": ["src", "src/images.d.ts"]
 }
