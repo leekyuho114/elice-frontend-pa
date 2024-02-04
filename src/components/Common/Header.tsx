@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { ReactComponent as BellIcon } from 'assets/icons/bell.svg';
 export const Header = () => {
   return (
     <Container>
@@ -8,14 +8,27 @@ export const Header = () => {
         alt="엘리스 아카데미"
         className="header-icon"
       />
-      <nav className="header-nav">
-        <div className="header-nav-element text-header-nav">홈</div>
-        <div className="header-nav-element text-header-nav">전체 강의</div>
-        <div className="header-nav-element text-header-nav">🌏플루럴사이트</div>
-        <div className="header-nav-element text-header-nav">클라우드</div>
-        <input placeholder="검색" />
-        <button>내 대시보드</button>
-      </nav>
+      <div className="header-options">
+        <nav className="header-nav">
+          <div className="header-nav-element text-header-nav">홈</div>
+          <div className="header-nav-element text-header-nav">전체 강의</div>
+          <div className="header-nav-element text-header-nav">
+            🌏플루럴사이트
+          </div>
+          <div className="header-nav-element text-header-nav">클라우드</div>
+        </nav>
+        <div className="header-user-options">
+          <button className="header-dashboard">내 대시보드</button>
+          <div className="header-alert">
+            <BellIcon
+              width={'1.25rem'}
+              height={'1.25rem'}
+              style={{ cursor: 'pointer' }}
+            />
+          </div>
+          <GoogleProfile />
+        </div>
+      </div>
     </Container>
   );
 };
@@ -31,7 +44,6 @@ const Container = styled.header`
   height: 4rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.04);
   background-color: rgb(255, 255, 255);
-  width: 100%;
   position: sticky;
   top: 0px;
   z-index: 900;
@@ -39,6 +51,11 @@ const Container = styled.header`
     width: auto;
     height: 100%;
     max-height: 2rem;
+  }
+  .header-options {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
   }
   .header-nav {
     display: flex;
@@ -53,4 +70,39 @@ const Container = styled.header`
     cursor: pointer;
     border-radius: 0.5rem;
   }
+  .header-user-options {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  .header-dashboard {
+    color: rgb(255, 255, 255);
+    background-color: #6947df;
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    line-height: 1.5rem;
+    border-radius: 8px;
+    min-width: 64px;
+    transition: filter 0.15s ease;
+    &:hover {
+      filter: brightness(0.9);
+    }
+    cursor: pointer;
+  }
+  .header-alert {
+    padding: 0.25rem;
+    border-radius: 100%;
+    transition: background-color 0.15s ease;
+    &:hover {
+      background-color: #f6f6f7;
+    }
+  }
+`;
+const GoogleProfile = styled.div`
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+  background-color: #0187d0;
+  cursor: pointer;
 `;
