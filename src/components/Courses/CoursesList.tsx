@@ -31,10 +31,13 @@ export const CoursesList = () => {
   );
 };
 const Container = styled.div`
+  width: 100%;
   .card-container {
     display: flex;
     margin: -12px;
     flex-wrap: wrap;
     align-items: center;
+    max-width: 100%;
+    width: 100%;
   }
 `;
