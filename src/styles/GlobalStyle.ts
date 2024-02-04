@@ -8,6 +8,7 @@ export const GlobalStyle = styled.createGlobalStyle`
   }
   body {
     background-color: #f0f1f3;
+    font-family: Pretendard;
   }
   /*custom scroll bar*/
   ::-webkit-scrollbar {
