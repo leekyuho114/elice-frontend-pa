@@ -63,6 +63,16 @@ const Container = styled.div`
   border-radius: 10px;
   border: 1px solid rgba(225, 226, 228, 0.75);
 
+  @media only screen and (max-width: 1279.98px) {
+    width: calc(33% - 24px);
+  }
+  @media only screen and (max-width: 768px) {
+    width: calc(50% - 24px);
+  }
+  @media only screen and (max-width: 520px) {
+    width: calc(100% - 24px);
+  }
+
   .title-container {
     padding: 1.25rem;
   }
