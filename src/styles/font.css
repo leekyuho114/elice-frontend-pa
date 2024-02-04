@@ -34,3 +34,16 @@
   text-overflow: ellipsis;
   color: #5e5f61;
 }
+.text-price {
+  font-weight: 700;
+  line-height: 1.5rem;
+}
+
+.text-discount-rate {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.text-line-through {
+  text-decoration: line-through;
+}

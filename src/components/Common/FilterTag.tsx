@@ -29,7 +29,7 @@ const Button = styled.button<{ IsSelected: boolean }>`
   font-size: 0.875rem;
   color: ${(props) => (props.IsSelected ? '#ffffff' : '#5e5f61')};
   background: ${(props) => (props.IsSelected ? Purple : 'rgb(240, 241, 243)')};
-  transition: filter 0.2s ease;
+  transition: filter 0.15s ease;
   &:hover {
     filter: brightness(0.9);
   }

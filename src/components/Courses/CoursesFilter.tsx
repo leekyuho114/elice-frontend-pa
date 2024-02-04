@@ -1,5 +1,6 @@
 import { FilterTag } from 'components/Common/FilterTag';
 import { useFilter } from 'hooks/useFilter';
+import styled from 'styled-components';
 
 export const CoursesFilter = () => {
   const {
@@ -10,6 +11,7 @@ export const CoursesFilter = () => {
     setSearchParams,
     handleKeywordChange,
   } = useFilter();
+
   const handlePriceClick = (selectedString: string) => {
     const updatedPrice = [...price];
     if (!price.includes(selectedString)) {
@@ -34,14 +36,25 @@ export const CoursesFilter = () => {
   };
 
   return (
-    <>
+    <Container>
       <input
         value={keyword}
         onChange={handleKeywordChange}
         placeholder="배우고 싶은 언어, 기술을 검색해 보세요"
       ></input>
-      <FilterTag text="무료" onClick={handleFreeClick} />{' '}
-      <FilterTag text="유료" onClick={handlePaidClick} />
-    </>
+      <FilterTag
+        text="무료"
+        isSelected={price.includes('free')}
+        onClick={handleFreeClick}
+      />{' '}
+      <FilterTag
+        text="유료"
+        isSelected={price.includes('paid')}
+        onClick={handlePaidClick}
+      />
+    </Container>
   );
 };
+const Container = styled.div`
+  width: 100%;
+`;

@@ -20,6 +20,11 @@ export const useFilter = () => {
     searchDebounce(e.target.value);
   };
 
+  useEffect(() => {
+    const savedKeyword = searchParams.get('keyword');
+    setKeyword(savedKeyword || '');
+    setPrice(searchParams.getAll('price'));
+  }, []);
   return {
     keyword,
     price,
