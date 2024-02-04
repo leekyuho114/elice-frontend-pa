@@ -1,4 +1,5 @@
 import { FilterTag } from 'components/Common/FilterTag';
+import { Input } from 'components/Common/Input';
 import { useFilter } from 'hooks/useFilter';
 import styled from 'styled-components';
 
@@ -37,11 +38,11 @@ export const CoursesFilter = () => {
 
   return (
     <Container>
-      <input
+      <Input
         value={keyword}
         onChange={handleKeywordChange}
         placeholder="배우고 싶은 언어, 기술을 검색해 보세요"
-      ></input>
+      ></Input>
       <div className="filter-container">
         <div className="filter-row">
           <div className="filter-entry">
@@ -66,6 +67,7 @@ export const CoursesFilter = () => {
 };
 const Container = styled.div`
   width: 100%;
+  margin-top: 1rem;
   margin-bottom: 1rem;
   .filter-container {
     border: 1px solid rgb(225, 226, 228);
