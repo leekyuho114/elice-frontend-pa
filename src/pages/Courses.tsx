@@ -1,11 +1,13 @@
-import { CoursesNav } from 'components/Courses/CoursesNav';
-import { Header } from 'components/Common/Header';
+import { CoursesCards, CoursesFilter } from 'components/Courses';
+import styled from 'styled-components';
 
 export const Courses = () => {
   return (
-    <>
-      <Header />
-      <CoursesNav />
-    </>
+    <Container>
+      <CoursesFilter />
+      <CoursesCards />
+    </Container>
   );
 };
+
+const Container = styled.main``;
