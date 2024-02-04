@@ -10,6 +10,11 @@ export const GlobalStyle = styled.createGlobalStyle`
     background-color: #f0f1f3;
     font-family: Pretendard;
   }
+  input {
+    appearance: none;
+    border: none;
+    outline: none;
+  }
   /*custom scroll bar*/
   ::-webkit-scrollbar {
     width: 0.5rem;
