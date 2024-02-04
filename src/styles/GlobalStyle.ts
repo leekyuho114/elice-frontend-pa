@@ -15,6 +15,10 @@ export const GlobalStyle = styled.createGlobalStyle`
     border: none;
     outline: none;
   }
+  button {
+    border: none;
+    outline: none;
+  }
   /*custom scroll bar*/
   ::-webkit-scrollbar {
     width: 0.5rem;
