@@ -17,7 +17,7 @@ const Button = styled.button<{ IsSelected: boolean }>`
   display: inline-flex;
   -webkit-box-align: center;
   align-items: center;
-  margin: 0px;
+  margin: 0.5rem;
   border: 1px solid rgb(240, 241, 243);
   font-family: Pretendard;
   font-weight: normal;
