@@ -1,26 +1,36 @@
 import { MouseEventHandler } from 'react';
 import styled from 'styled-components';
+import { Purple } from 'styles/color';
 interface FilterTagProps {
   text: string;
+  isSelected: boolean;
   onClick: MouseEventHandler<HTMLButtonElement> | undefined;
 }
-export const FilterTag = ({ text, onClick }: FilterTagProps) => {
-  return <Button onClick={onClick}>{text}</Button>;
+export const FilterTag = ({ text, isSelected, onClick }: FilterTagProps) => {
+  return (
+    <Button onClick={onClick} IsSelected={isSelected}>
+      {text}
+    </Button>
+  );
 };
-const Button = styled.button`
+const Button = styled.button<{ IsSelected: boolean }>`
   display: inline-flex;
   -webkit-box-align: center;
   align-items: center;
   margin: 0px;
   border: 1px solid rgb(240, 241, 243);
+  font-family: Pretendard;
   font-weight: normal;
-  transition: all 150ms ease-in-out 0s;
   cursor: pointer;
-  padding: 4px 12px;
+  padding: 0.25rem 0.75rem;
   min-width: 1.875rem;
   height: 1.875rem;
   border-radius: 1.875rem;
   font-size: 0.875rem;
-  color: rgb(21, 22, 24);
-  background: rgb(240, 241, 243);
+  color: ${(props) => (props.IsSelected ? '#ffffff' : '#5e5f61')};
+  background: ${(props) => (props.IsSelected ? Purple : 'rgb(240, 241, 243)')};
+  transition: filter 0.2s ease;
+  &:hover {
+    filter: brightness(0.9);
+  }
 `;
