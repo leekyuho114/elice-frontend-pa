@@ -5,14 +5,17 @@ import reportWebVitals from './reportWebVitals';
 import 'styles/font.css';
 import { BrowserRouter } from 'react-router-dom';
 import { GlobalStyle } from 'styles/GlobalStyle';
+import { RecoilRoot } from 'recoil';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <GlobalStyle />
-      <App />
+      <RecoilRoot>
+        <GlobalStyle />
+        <App />
+      </RecoilRoot>
     </BrowserRouter>
   </React.StrictMode>,
 );
