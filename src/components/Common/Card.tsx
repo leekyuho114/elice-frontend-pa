@@ -7,15 +7,9 @@ interface CardProps {
 export const Card = ({ course }: CardProps) => {
   return (
     <Container>
-      <div
-        style={{
-          height: '145px',
-          width: '100%',
-          backgroundColor: Purple,
-          borderTopLeftRadius: '10px',
-          borderTopRightRadius: '10px',
-        }}
-      ></div>
+      <Thumbnail>
+        <div className="text-thumbnail">Thumbnail</div>
+      </Thumbnail>
       <div className="content-container">
         <div className="title-container">
           <div className="text-title">{course.title}</div>
@@ -83,4 +77,15 @@ const Container = styled.div`
     border-top: 1px solid rgb(240, 241, 243);
     padding-top: 1rem;
   }
+`;
+
+const Thumbnail = styled.div`
+  height: 145px;
+  width: 100%;
+  background-color: ${Purple};
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

@@ -61,6 +61,11 @@
   text-decoration: line-through;
 }
 
+.text-thumbnail {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+}
 /* header text */
 .text-header-nav {
   font-weight: 600;
