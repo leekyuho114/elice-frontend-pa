@@ -11,7 +11,7 @@ export const CoursesCards = () => {
       {course_count > 0 ? (
         <>
           {courses?.map((value) => {
-            return <Card course={value} />;
+            return <Card key={value.id} course={value} />;
           })}
         </>
       ) : (
