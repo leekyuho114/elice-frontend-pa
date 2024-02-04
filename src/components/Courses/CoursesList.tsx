@@ -10,9 +10,12 @@ export const CoursesList = () => {
     <Container>
       {course_count > 0 ? (
         <>
-          {courses?.map((value) => {
-            return <Card key={value.id} course={value} />;
-          })}
+          <div className="text-total-count">전체 {course_count}개</div>
+          <div className="card-container">
+            {courses?.map((value) => {
+              return <Card key={value.id} course={value} />;
+            })}
+          </div>
         </>
       ) : (
         <div>검색 결과가 없습니다.</div>
@@ -21,8 +24,10 @@ export const CoursesList = () => {
   );
 };
 const Container = styled.div`
-  display: flex;
-  margin: -12px;
-  flex-wrap: wrap;
-  align-items: center;
+  .card-container {
+    display: flex;
+    margin: -12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
 `;
