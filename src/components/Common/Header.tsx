@@ -16,6 +16,9 @@ export const Header = () => {
             🌏플루럴사이트
           </div>
           <div className="header-nav-element text-header-nav">클라우드</div>
+          <div className="header-nav-element text-header-nav">내일배움카드</div>
+          <div className="header-nav-element text-header-nav">기업교육문의</div>
+          <div className="header-nav-element text-header-nav">학습 순위</div>
         </nav>
         <div className="header-user-options">
           <button className="header-dashboard">내 대시보드</button>
