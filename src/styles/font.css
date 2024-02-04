@@ -27,6 +27,7 @@
   border-bottom: 1px solid rgb(225, 226, 228);
   margin-bottom: 0.75rem;
 }
+/* Courses page text */
 .text-title {
   font-size: 1rem;
   font-weight: 700;
@@ -55,3 +56,5 @@
 .text-line-through {
   text-decoration: line-through;
 }
+
+/* header text */
