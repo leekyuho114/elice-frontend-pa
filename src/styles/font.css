@@ -58,3 +58,14 @@
 }
 
 /* header text */
+.text-header-nav {
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}
+/* fiter text */
+.text-filter-entry {
+  line-height: 1.5;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
